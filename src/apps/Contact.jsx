@@ -1,23 +1,28 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ME } from '../data.js'
+const STEPS = ['Dialing Munkh-Orgil...', 'Verifying user name and password...', 'Registering your computer on the network...']
+// Win95 Dial-Up Networking: "холбогдох" бодитоор холболт үүсгэж байгаа мэт харагдана
 export default function Contact() {
-  const [s, setS] = useState('Сайн байна уу!')
-  const [b, setB] = useState('')
-  const send = e => { e.preventDefault(); window.location.href = `mailto:${ME.email}?subject=${encodeURIComponent(s)}&body=${encodeURIComponent(b)}` }
+  const [st, setSt] = useState(0) // 0 хүлээж байна, 1-3 залгаж байна, 4 холбогдсон
+  const [done, setDone] = useState('')
+  useEffect(() => {
+    if (st < 1 || st > 3) return
+    const t = setTimeout(() => setSt(st + 1), 900); return () => clearTimeout(t)
+  }, [st])
+  const copy = async (v, k) => { try { await navigator.clipboard.writeText(v) } catch { /* ignore */ } setDone(k); setTimeout(() => setDone(''), 1500) }
+  const rows = [['✉', 'Имэйл', ME.email, 'mailto:' + ME.email], ['🐙', 'GitHub', ME.github.replace('https://', ''), ME.github], ...(ME.linkedin ? [['💼', 'LinkedIn', ME.linkedin.replace('https://', ''), ME.linkedin]] : [])]
   return (
-    <div className="m gray">
-      <h2>Холбоо барих</h2>
-      <form className="card form" onSubmit={send}>
-        <label>Хэнд<input value={ME.email} readOnly /></label>
-        <label>Гарчиг<input value={s} onChange={e => setS(e.target.value)} /></label>
-        <label>Зурвас<textarea rows="5" value={b} onChange={e => setB(e.target.value)} placeholder="Дадлага, хамтын төсөл, эсвэл зүгээр л мэнд..." /></label>
-        <button className="pill" type="submit">✉ Илгээх</button>
-      </form>
-      <div className="btns">
-        <a className="pill ghost" href={ME.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-        {ME.linkedin && <a className="pill ghost" href={ME.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>}
-        <a className="pill ghost" href={'mailto:' + ME.email}>{ME.email}</a>
-      </div>
+    <div className="m gray dial">
+      {st === 0 && <div className="card"><h3>Connect To</h3><p>📞 Munkh-Orgil-тай холбогдохын тулд сүлжээнд залгана уу.</p><label>User name: <input className="in" value="guest" readOnly /></label><div className="btns"><button className="pill" onClick={() => setSt(1)}>Connect</button></div></div>}
+      {st > 0 && st < 4 && <div className="card"><h3>Connecting...</h3><p>{STEPS[st - 1]}</p><div className="track"><i style={{ '--w': st * 33 + '%' }} /></div></div>}
+      {st === 4 && <>
+        <p><b>✔ Connected at 56000 bps.</b> Холбоо барих хаягууд:</p>
+        {rows.map(([i, l, v, u]) => (
+          <div key={l} className="card crow"><span className="ci">{i}</span><div><b>{l}</b><div>{v}</div></div>
+            <button className="pill" onClick={() => copy(v, l)}>{done === l ? 'Хуулсан ✓' : 'Copy'}</button>
+            <a className="pill" href={u} target={u.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">Open</a></div>
+        ))}
+        <div className="btns"><button className="pill" onClick={() => setSt(0)}>Disconnect</button></div></>}
     </div>
   )
 }

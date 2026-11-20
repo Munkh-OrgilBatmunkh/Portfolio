@@ -74,7 +74,7 @@ export const LANG = [
 ] // TODO: жинхэнэ түвшин
 export const PRJ = {
   ism: {
-    ic: '🏛️',
+    px: 'museum',
     n: 'ISM Digital Museum',
     f: 'ism_museum.exe',
     c: 'linear-gradient(135deg,#6366f1,#06b6d4)',
@@ -90,7 +90,7 @@ export const PRJ = {
     ],
   },
   pg: {
-    ic: '🎮',
+    px: 'pad',
     n: 'Playgrid',
     f: 'playgrid.exe',
     c: 'linear-gradient(135deg,#f43f5e,#f59e0b)',
@@ -100,7 +100,7 @@ export const PRJ = {
     links: [['GitHub', 'https://github.com/Munkh-OrgilBatmunkh/Playgrid']],
   },
   st: {
-    ic: '📈',
+    px: 'chart',
     n: 'Stock App',
     f: 'stock_app.exe',
     c: 'linear-gradient(135deg,#10b981,#3b82f6)',
@@ -109,4 +109,15 @@ export const PRJ = {
     tech: ['React Native', 'Expo', 'TypeScript', 'REST API'],
     links: [['GitHub', 'https://github.com/Munkh-OrgilBatmunkh/Stock-app']],
   },
+}
+
+// Ур чадвар бүр хаана ашиглагдсан (TODO: өөрийнхөөрөө засна)
+export const USED = {
+  Java: [],
+  Python: ['UDP Pinger лаб'],
+  JavaScript: ['ISM Digital Museum', 'Playgrid', 'Stock App'],
+  React: ['ISM Digital Museum', 'Playgrid'],
+  Supabase: ['ISM Digital Museum', 'Playgrid'],
+  'Системийн шинжилгээ ба загварчлал': ['Khan Bank ATM загварчлал'],
+  'Объект хандлагат системийн загварчлал': ['Khan Bank ATM загварчлал'],
 }

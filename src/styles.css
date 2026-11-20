@@ -292,26 +292,6 @@ body {
   width: 12px;
 }
 /* ===== ЦОНХНЫ АГУУЛГА: Win95 хэв маяг ===== */
-[data-bg='teal'] {
-  background: #008080;
-}
-[data-bg='clouds'] {
-  background:
-    radial-gradient(ellipse 130px 36px at 18% 24%, #fff 65%, transparent 67%),
-    radial-gradient(ellipse 180px 44px at 68% 16%, #fff 65%, transparent 67%),
-    radial-gradient(ellipse 150px 36px at 50% 58%, #fff 65%, transparent 67%),
-    #4a90d9;
-}
-[data-bg='steppe'] {
-  background: linear-gradient(
-    #1b1b52 0,
-    #6b2d6b 30%,
-    #e8704a 50%,
-    #f5c04a 60%,
-    #4c9a2a 60%,
-    #2f6b1f 100%
-  );
-}
 .wb.modern {
   background: #fff;
   font:
@@ -368,8 +348,8 @@ body {
   box-shadow: inset 1px 1px #404040;
 }
 .avatar {
-  width: 120px;
-  height: 140px;
+  width: 190px;
+  height: 230px;
   flex: none;
 }
 .avatar img,
@@ -521,10 +501,10 @@ img.shot {
   border-color: #404040 #fff #fff #404040;
 }
 .sch-img {
-  width: 96px;
-  height: 72px;
+  width: 170px;
+  height: 125px;
   flex: none;
-  font-size: 28px;
+  font-size: 40px;
 }
 .more {
   margin: 6px 0 0;
@@ -667,10 +647,6 @@ img.shot {
   border-color: #808080 #fff #fff #808080;
   outline: 0;
 }
-.bgp {
-  height: 110px;
-  margin: 8px 0;
-}
 .wb.retro {
   background: #000;
   color: #c0c0c0;
@@ -696,6 +672,213 @@ img.shot {
   color: #c0c0c0;
   font: inherit;
   width: 70%;
+}
+.os {
+  background: #008080;
+}
+.hero {
+  gap: 24px;
+}
+.school {
+  align-items: center;
+}
+.school h3 {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.chip {
+  font-size: 12px;
+}
+.tl-item:before {
+  top: 50px;
+}
+.pxi {
+  display: block;
+  margin: 0 auto 4px;
+}
+.pd-head .pxi {
+  margin: 0;
+}
+.proj {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pd {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 18px;
+}
+.pd-head {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.pd h3 {
+  margin: 12px 0 4px;
+  color: #000080;
+}
+.shot-main {
+  height: 230px;
+}
+.cap {
+  display: block;
+  margin: 4px 0;
+  color: #444;
+}
+.thumbs {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+.thumbs button {
+  flex: 1;
+  padding: 2px;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #fff #404040 #404040 #fff;
+  cursor: pointer;
+}
+.thumbs button.on {
+  outline: 2px solid #000080;
+}
+.thumbs .shot {
+  height: 58px;
+  border-width: 1px;
+}
+.mock {
+  display: block !important;
+  padding: 0 !important;
+}
+.mock svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.sk {
+  display: grid;
+  grid-template-columns: minmax(170px, 1fr) minmax(0, 1.4fr);
+  gap: 10px;
+}
+.list {
+  background: #fff;
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+  max-height: 340px;
+  overflow: auto;
+}
+.list h4 {
+  margin: 0;
+  padding: 3px 8px;
+  background: #000080;
+  color: #fff;
+  font-size: 12px;
+}
+.list button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: none;
+  padding: 5px 10px;
+  font:
+    13px Tahoma,
+    Arial,
+    sans-serif;
+  cursor: pointer;
+  color: #000;
+}
+.list button.on {
+  background: #000080;
+  color: #fff;
+}
+.props {
+  padding: 12px;
+}
+.dial {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.dial .card {
+  box-shadow: inset -1px -1px #808080;
+}
+.in {
+  font:
+    13px Tahoma,
+    Arial,
+    sans-serif;
+  padding: 3px 4px;
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+}
+.crow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.crow > div {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.ci {
+  font-size: 24px;
+}
+.win.max .m {
+  font-size: 16px;
+  padding: 32px;
+}
+.win.max .avatar {
+  width: min(300px, 30vw);
+  height: min(370px, 38vw);
+}
+.win.max .grad {
+  font-size: 26px;
+}
+.win.max .quote {
+  font-size: 20px;
+  padding: 20px;
+}
+.win.max .sch-img {
+  width: 260px;
+  height: 190px;
+}
+.win.max .school h3 {
+  font-size: 19px;
+}
+.win.max .chip {
+  font-size: 14px;
+}
+.win.max .shot-main {
+  height: min(420px, 50vh);
+}
+.win.max .thumbs .shot {
+  height: 90px;
+}
+.win.max .pill {
+  font-size: 17px;
+  padding: 10px 28px;
+  background: #000080;
+  color: #fff;
+  border-color: #4a6fe0 #000 #000 #4a6fe0;
+  animation: pulse 1.8s ease-in-out infinite;
+}
+.win.max .pill:hover {
+  background: #1084d0;
+}
+.win.max .list {
+  max-height: 60vh;
+}
+.win.max .grid {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+@keyframes pulse {
+  50% {
+    transform: translateY(-3px);
+    box-shadow: 0 0 0 3px #ffd830;
+  }
 }
 @keyframes fadeup {
   from {
@@ -730,5 +913,21 @@ img.shot {
   }
   .m {
     padding: 12px;
+  }
+  .pd,
+  .sk {
+    grid-template-columns: 1fr;
+  }
+  .school {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .sch-img {
+    width: 100%;
+    height: 150px;
+  }
+  .avatar {
+    width: 150px;
+    height: 180px;
   }
 }
