@@ -1,122 +1,109 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState, useEffect, useRef } from 'react'
+import Win from './components/Win.jsx'
+import About from './apps/About.jsx'
+import Life from './apps/Life.jsx'
+import Skills from './apps/Skills.jsx'
+import Contact from './apps/Contact.jsx'
+import { Projects, ProjectDetail } from './apps/Projects.jsx'
+import { Dos, Bin } from './apps/Retro.jsx'
+import Display from './apps/Display.jsx'
+import { PRJ } from './data.js'
 
-function App() {
-  const [count, setCount] = useState(0)
+// Бүх апп-ын бүртгэл: шинэ апп нэмэх бол энд нэг мөр нэмнэ
+const REG = {
+  pc: { t: 'Миний компьютер', l: 'Миний компьютер', e: '🖥️', w: 640, h: 470, C: About },
+  life: { t: 'Миний тухай', l: 'Миний тухай', e: '📄', w: 660, h: 540, C: Life },
+  prj: { t: 'C:\\Бүтээлүүд', l: 'Бүтээлүүд', e: '📁', w: 700, h: 500, C: Projects },
+  skills: { t: 'Control Panel — Ур чадвар', l: 'Ур чадвар', e: '🎛️', w: 620, h: 500, C: Skills },
+  mail: { t: 'Outlook Express — Холбоо барих', l: 'Холбоо барих', e: '✉️', w: 560, h: 540, C: Contact },
+  disp: { t: 'Display Properties', l: 'Дэлгэц', e: '🎨', w: 400, h: 330, C: Display },
+  dos: { t: 'MS-DOS', l: 'MS-DOS', e: '⌨️', w: 540, h: 340, C: Dos, retro: true },
+  bin: { t: 'Recycle Bin', l: 'Recycle Bin', e: '🗑️', w: 360, h: 240, C: Bin, retro: true },
+}
+const getApp = id => id.startsWith('p_')
+  ? { t: PRJ[id.slice(2)].n, e: PRJ[id.slice(2)].ic, w: 660, h: 540, C: () => <ProjectDetail pid={id.slice(2)} /> }
+  : REG[id]
 
+function Boot({ done }) {
+  const [n, setN] = useState(0)
+  useEffect(() => {
+    if (n >= 16) { const t = setTimeout(done, 350); return () => clearTimeout(t) }
+    const t = setTimeout(() => setN(n + 1), 130); return () => clearTimeout(t)
+  }, [n])
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+    <div className="boot" onClick={done}>
+      <div className="blogo"><div className="lg"><i style={{ background: '#e8000b' }} /><i style={{ background: '#1a9c3a' }} /><i style={{ background: '#000080' }} /><i style={{ background: '#ffd830' }} /></div>
+        <div className="px">OrgilOS<br /><span>95</span></div></div>
+      <div className="pb">{Array.from({ length: n }, (_, i) => <i key={i} />)}</div>
+      <div>Мөнх-Оргилын ертөнцийг ачаалж байна...</div>
+    </div>
   )
 }
 
-export default App
+export default function App() {
+  const [booting, setBooting] = useState(true)
+  const [off, setOff] = useState(false)
+  const [menu, setMenu] = useState(false)
+  const [sel, setSel] = useState(null)
+  const [bg, setBg] = useState('teal')
+  const [wins, setWins] = useState([])
+  const zc = useRef(10), nc = useRef(0)
+  const [time, setTime] = useState(new Date())
+  useEffect(() => { const t = setInterval(() => setTime(new Date()), 10000); return () => clearInterval(t) }, [])
+
+  const open = id => setWins(w => w.some(x => x.id === id)
+    ? w.map(x => x.id === id ? { ...x, min: false, z: ++zc.current } : x)
+    : [...w, { id, z: ++zc.current, min: false, max: false, i: nc.current++ }])
+  const patch = (id, p) => setWins(w => w.map(x => x.id === id ? { ...x, ...p } : x))
+  const focus = id => patch(id, { z: ++zc.current, min: false })
+  const close = id => setWins(w => w.filter(x => x.id !== id))
+  const top = wins.filter(w => !w.min).sort((a, b) => b.z - a.z)[0]?.id
+  const finishBoot = () => { if (booting) { setBooting(false); open('pc') } }
+  const coarse = typeof matchMedia !== 'undefined' && matchMedia('(pointer:coarse)').matches
+  const icons = Object.keys(REG)
+
+  return (
+    <div className="os" data-bg={bg} onClick={() => setMenu(false)}>
+      {booting && <Boot done={finishBoot} />}
+      {off && <div className="off" onClick={() => location.reload()}>Одоо компьютерээ аюулгүй унтрааж болно.<small>(дахин асаахын тулд дар)</small></div>}
+      <div className="desk">
+        {icons.map(k => (
+          <div key={k} className={'ic ' + (sel === k ? 'sel' : '')} onClick={e => { e.stopPropagation(); setSel(k); if (coarse) open(k) }} onDoubleClick={() => open(k)}>
+            <b>{REG[k].e}</b><span>{REG[k].l}</span>
+          </div>
+        ))}
+      </div>
+      <div className="brand"><div className="px">OrgilOS 95</div>Мөнх-Оргил Батмөнх</div>
+      {wins.map(st => {
+        const a = getApp(st.id), C = a.C
+        return (
+          <Win key={st.id} a={a} st={st} active={top === st.id} onFocus={() => focus(st.id)} onClose={() => close(st.id)}
+            onMin={() => patch(st.id, { min: true })} onMax={() => patch(st.id, { max: !st.max })}>
+            <C open={open} close={() => close(st.id)} bg={bg} setBg={setBg} />
+          </Win>
+        )
+      })}
+      {menu && (
+        <div className="sm r" onClick={e => e.stopPropagation()}>
+          <div className="sd px">Orgil95</div>
+          <ul>
+            {icons.filter(k => k !== 'pc').map(k => <li key={k} onClick={() => { open(k); setMenu(false) }}>{REG[k].e} &nbsp;{REG[k].l}</li>)}
+            <li onClick={() => { open('pc'); setMenu(false) }}>🖥️ &nbsp;Миний компьютер</li>
+            <hr /><li onClick={() => { setMenu(false); setOff(true) }}>⏻ &nbsp;Унтраах...</li>
+          </ul>
+        </div>
+      )}
+      <div className="tk r">
+        <button className="px startb" onClick={e => { e.stopPropagation(); setMenu(m => !m) }}>▣ Start</button>
+        <div className="tbs">
+          {wins.map(w => (
+            <button key={w.id} className={'tbn ' + (top === w.id ? 'on' : '')} onClick={() => top === w.id ? patch(w.id, { min: true }) : focus(w.id)}>
+              {getApp(w.id).e} {getApp(w.id).t}
+            </button>
+          ))}
+        </div>
+        <div className="clk s">{time.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}</div>
+      </div>
+    </div>
+  )
+}
