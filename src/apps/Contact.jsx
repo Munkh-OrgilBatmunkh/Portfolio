@@ -6,9 +6,8 @@ const STEPS = [
   'Хэрэглэгчийн нэр, нууц үгийг шалгаж байна...',
   'Сүлжээнд компьютерийг бүртгэж байна...',
 ]
-// Нээгдмэгц шууд холболт хийж эхэлнэ (progress bar), дараа нь хаягууд гарна
 export default function Contact() {
-  const [st, setSt] = useState(1) // 1-3 холбогдож байна, 4 холбогдсон
+  const [st, setSt] = useState(1)
   const [done, setDone] = useState('')
   useEffect(() => {
     if (st > 3) return

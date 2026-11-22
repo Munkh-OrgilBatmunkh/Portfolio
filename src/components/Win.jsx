@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 const vp = () => ({ w: window.innerWidth, h: window.innerHeight })
-// Win95 хэв маягийн цонх: чирэх боломжтой, дэлгэц жижгэрэхэд хэмжээ, байрлал нь дэлгэцэнд багтана
 export default function Win({
   a,
   st,
@@ -22,7 +21,7 @@ export default function Win({
     return () => removeEventListener('resize', f)
   }, [])
   const w = Math.min(a.w, v.w - 8),
-    h = Math.min(a.h, v.h - 34 - 8) // дэлгэцээс томрохгүй
+    h = Math.min(a.h, v.h - 34 - 8)
   const maxX = Math.max(0, v.w - w),
     maxY = Math.max(0, v.h - 34 - h)
   const x = Math.min(Math.max(0, pos.x), maxX),

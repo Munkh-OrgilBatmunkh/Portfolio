@@ -1,14 +1,12 @@
-// ===== Бүх мэдээллээ ЭНД засна =====
 export const ME = {
   name: 'Б. Мөнх-Оргил',
   role: 'СЭЗИС-ийн Мэдээллийн Системийн Менежментийн 3 дугаар курсийн оюутан',
-  quote: 'Хүнд өгсөн урам зориг түүнийг амжил өөд хөтөлдөг', // TODO: өөрийн өгүүлбэр
+  quote: 'Хүнд өгсөн урам зориг түүнийг амжил өөд хөтөлдөг',
   photo: '/images/me.jpg',
   email: 'oggy.batmunkh@gmail.com',
   github: 'https://github.com/Munkh-OrgilBatmunkh',
   linkedin: '', // TODO
 }
-// g = анги (TODO), img = public/images/schools/ доторх файл
 export const EDU = [
   {
     n: 'Логарифм Ерөнхий Боловсролын Сургууль',
@@ -69,9 +67,9 @@ export const EDU = [
   },
 ]
 export const HARD = [
-  ['Системийн шинжилгээ ба загварчлал', 75],
+  ['Системийн шинжилгээ ба зохиомж', 75],
   ['Бизнес анализ', 70],
-  ['Объект хандлагат системийн загварчлал', 75],
+  ['Объект хандлагат системийн зохиомж', 75],
   ['Supabase', 70],
   ['Microsoft SQL', 65],
 ] // TODO: жинхэнэ түвшин
@@ -190,13 +188,12 @@ export const PRJ = {
   },
 }
 
-// Ур чадвар бүр хаана ашиглагдсан (TODO: өөрийнхөөрөө засна)
 export const USED = {
   Java: [],
-  Python: ['UDP Pinger Server'],
-  JavaScript: ['ISM Digital Museum', 'Playgrid', 'Stock App'],
-  React: ['ISM Digital Museum', 'Playgrid'],
-  Supabase: ['ISM Digital Museum', 'Playgrid'],
-  'Системийн шинжилгээ ба загварчлал': ['Khan Bank ATM загварчлал'],
-  'Объект хандлагат системийн загварчлал': ['Khan Bank ATM загварчлал'],
+  Python: [],
+  JavaScript: [],
+  React: [],
+  Supabase: [],
+  'Системийн шинжилгээ ба зохиомж': [],
+  'Объект хандлагат системийн зохиомж': [],
 }

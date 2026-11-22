@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import Img from './Img.jsx'
-// Зураг 90-ээд оны dial-up интернет шиг пиксел байснаас аажмаар тодорч ачаална. Дарвал дахин ачаална.
 const STEPS = [6, 10, 16, 28, 48, 90]
 export default function RetroPhoto({ src, fb }) {
   const ref = useRef(null)

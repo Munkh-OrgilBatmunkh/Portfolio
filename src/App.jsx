@@ -9,7 +9,6 @@ import { Projects, ProjectDetail } from './apps/Projects.jsx'
 import { Dos } from './apps/Retro.jsx'
 import { PRJ } from './data.js'
 
-// Бүх апп-ын бүртгэл: шинэ апп нэмэх бол энд нэг мөр нэмнэ
 const REG = {
   pc: {
     t: 'Миний компьютер',
@@ -61,7 +60,6 @@ const REG = {
     retro: true,
   },
 }
-// Тогтвортой (stable) component. Өмнө нь render бүрт шинэ функц үүсч, цонх дахин үүсэн товчнууд ажилладаггүй байсан.
 const ProjectView = ({ wid }) => <ProjectDetail pid={wid.slice(2)} />
 const getApp = (id) =>
   id.startsWith('p_')

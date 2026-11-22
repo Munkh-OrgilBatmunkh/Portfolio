@@ -1,7 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
 import { EDU } from '../data.js'
-// src/assets/schools/ дотор байгаа зургуудыг автоматаар олно.
-// Файлыг НЭРЭЭР нь таарна: том/жижиг үсэг, өргөтгөл (.jpg .jpeg .png .webp) хамаагүй. Жишээ: ufe.jpg = UFE.PNG = ufe
 const FILES = import.meta.glob('../assets/schools/*', {
   eager: true,
   query: '?url',
@@ -26,10 +24,9 @@ const FB = [
   'linear-gradient(135deg,#2b1430,#9a21b7)',
   'linear-gradient(135deg,#0b0401,#ebb25f)',
 ]
-// Сургууль бүр бүтэн дэлгэцийн зураг; хооронд нь аажим уусан шилжинэ (cross-fade)
 export default function Life() {
   const [i, setI] = useState(0)
-  const [bad, setBad] = useState({}) // зөвхөн ачаалагдаагүй зургийн URL-ийг тэмдэглэнэ (дугаараар биш)
+  const [bad, setBad] = useState({})
   useEffect(() => {
     EDU.forEach((x) => {
       if (!BY[base(x.img)])

@@ -17,7 +17,6 @@ export function Projects({ open }) {
     </div>
   )
 }
-// src/assets/projects/<төслийн id>/ дотор байгаа бүх зургийг (1.png, 2.png ...) автоматаар carousel-д оруулна
 const FILES = import.meta.glob(
   '../assets/projects/*/*.{png,jpg,jpeg,webp,gif}',
   { eager: true, query: '?url', import: 'default' },
@@ -29,11 +28,9 @@ const imagesOf = (pid) =>
     .map(([, url]) => url)
 const TABS = ['Юу вэ', 'Миний үүрэг', 'Үр дүн']
 const DELAY = 4000 // автоматаар эргэх хугацаа (мс)
-// "Project viewer": зүүн талд мэдээлэл, баруун талд дэлгэцийн carousel
 export function ProjectDetail({ pid }) {
   const p = PRJ[pid]
   const imgs = imagesOf(pid)
-  // Зураг байвал зургуудыг, байхгүй бол туршилтын (dummy) дэлгэцүүдийг харуулна
   const slides = imgs.length
     ? imgs.map((src, i) => ({
         src,
@@ -65,13 +62,11 @@ export function ProjectDetail({ pid }) {
   useEffect(() => {
     root.current?.focus()
   }, [])
-  // Автомат эргэлт: слайд солигдох бүрт хугацаа шинээр эхэлнэ (гараар солисон ч тасрахгүй)
   useEffect(() => {
     if (!play || zoom || n < 2) return
     const t = setTimeout(() => setCur((c) => (c + 1) % n), DELAY)
     return () => clearTimeout(t)
   }, [play, zoom, n, cur])
-  // scrollIntoView биш: зөвхөн thumbnail мөрийг гүйлгэнэ
   useEffect(() => {
     const b = strip.current,
       el = thumbs.current[cur]
@@ -193,7 +188,6 @@ export function ProjectDetail({ pid }) {
             {cur + 1} / {n}
           </span>
         </div>
-        {/* Зураг дээр дарвал дараагийнх руу шилжинэ (томруулсан үед томруулалтаас гарна) */}
         <div
           className={'stage' + (zoom ? ' zoom' : '')}
           ref={stage}
