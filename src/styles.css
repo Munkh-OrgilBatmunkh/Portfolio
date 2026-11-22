@@ -860,10 +860,6 @@ img.shot {
 .win.max .pill {
   font-size: 17px;
   padding: 10px 28px;
-  background: #000080;
-  color: #fff;
-  border-color: #4a6fe0 #000 #000 #4a6fe0;
-  animation: pulse 1.8s ease-in-out infinite;
 }
 .win.max .pill:hover {
   background: #1084d0;
@@ -986,7 +982,13 @@ img.shot {
   height: 100%;
   display: grid;
   place-items: center;
+  align-content: center;
   font-size: 120px;
+}
+.edu-fb small {
+  font-size: 13px;
+  color: #fbf8f1;
+  opacity: 0.8;
 }
 .edu-scrim {
   position: absolute;
@@ -1360,17 +1362,119 @@ img.shot {
 .win.max .pv-thumbs .th {
   height: 90px;
 }
-@media (max-width: 700px) {
+.wb.modern {
+  container-type: inline-size;
+}
+.pv-thumbs {
+  position: relative;
+}
+.pv-tool {
+  flex-wrap: wrap;
+}
+.win.max .pv-tool .pill {
+  animation: none;
+  font-size: 15px;
+  padding: 4px 12px;
+}
+/* Цонхны өргөнөөс хамаарч өөрчлөгдөнө (дэлгэц жижгэрэхэд ч, цонх жижиг үед ч) */
+@container (max-width:680px) {
   .pv {
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto minmax(380px, 1fr);
     overflow: auto;
   }
   .pv-l {
-    max-height: 46vh;
+    overflow: visible;
   }
   .pv-r {
-    min-height: 420px;
+    border-left: 0;
+    border-top: 2px solid #fff;
+  }
+  .about {
+    padding: 18px;
+    gap: 18px;
+  }
+  .rphoto {
+    width: 200px;
+    margin: auto;
+  }
+  .edu-copy {
+    padding: 0 16px 64px 56px;
+  }
+  .edu-nav .pill {
+    padding: 4px 8px;
+  }
+  .crow {
+    flex-wrap: wrap;
+  }
+  .m {
+    padding: 12px;
+  }
+}
+@container (max-width:420px) {
+  .rphoto {
+    width: 150px;
+  }
+  .pv-thumbs button {
+    flex-basis: 96px;
+  }
+  .edu-name {
+    font-size: 26px;
+  }
+}
+.stage {
+  position: relative;
+  cursor: pointer;
+}
+.stage.zoom {
+  cursor: zoom-out;
+}
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 34px;
+  height: 60px;
+  border: 0;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.65;
+  transition:
+    opacity 0.2s,
+    background 0.2s;
+}
+.nav:hover {
+  opacity: 1;
+  background: rgba(0, 0, 128, 0.85);
+}
+.nav-l {
+  left: 0;
+}
+.nav-r {
+  right: 0;
+}
+.stage.zoom .nav {
+  display: none;
+}
+.autobar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  background: #ffd830;
+  z-index: 2;
+  animation: fillbar linear forwards;
+}
+@keyframes fillbar {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 }
 @keyframes fadeup {
@@ -1391,7 +1495,7 @@ img.shot {
 @media (max-width: 700px) {
   .win,
   .win.max {
-    inset: 0 0 34px 0 !important;
+    inset: env(safe-area-inset-top, 0px) 0 34px 0 !important;
     width: auto !important;
     height: auto !important;
   }

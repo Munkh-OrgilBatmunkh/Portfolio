@@ -61,6 +61,8 @@ const REG = {
     retro: true,
   },
 }
+// Тогтвортой (stable) component. Өмнө нь render бүрт шинэ функц үүсч, цонх дахин үүсэн товчнууд ажилладаггүй байсан.
+const ProjectView = ({ wid }) => <ProjectDetail pid={wid.slice(2)} />
 const getApp = (id) =>
   id.startsWith('p_')
     ? {
@@ -68,7 +70,7 @@ const getApp = (id) =>
         e: <PixelIcon k={PRJ[id.slice(2)].px} s={16} />,
         w: 920,
         h: 580,
-        C: () => <ProjectDetail pid={id.slice(2)} />,
+        C: ProjectView,
       }
     : REG[id]
 
@@ -190,7 +192,7 @@ export default function App() {
             onMin={() => patch(st.id, { min: true })}
             onMax={() => patch(st.id, { max: !st.max })}
           >
-            <C open={open} close={() => close(st.id)} />
+            <C open={open} close={() => close(st.id)} wid={st.id} />
           </Win>
         )
       })}
