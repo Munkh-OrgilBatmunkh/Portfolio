@@ -5,7 +5,7 @@ export const ME = {
   photo: '/images/me.jpg',
   email: 'oggy.batmunkh@gmail.com',
   github: 'https://github.com/Munkh-OrgilBatmunkh',
-  linkedin: '', // TODO
+  linkedin: '',
 }
 export const EDU = [
   {
@@ -72,24 +72,24 @@ export const HARD = [
   ['Объект хандлагат системийн зохиомж', 75],
   ['Supabase', 70],
   ['Microsoft SQL', 65],
-] // TODO: жинхэнэ түвшин
+]
 export const SOFT = [
   ['Бие даан суралцах', 90],
   ['Багийг удирдах', 75],
   ['Багаар хамтран ажиллах', 85],
   ['Асуудал шийдэх, шүүмжлэлтэй сэтгэх', 80],
   ['Цаг ба ач холбогдлоо зохицуулах', 70],
-] // TODO
+]
 export const SPOKEN = [
-  ['Монгол (төрөлх хэл)', 100],
-  ['Англи хэл (ахисан түвшин)', 85],
-] // TODO
+  ['Монгол хэл', 100],
+  ['Англи хэл', 85],
+]
 export const LANG = [
   ['Java', 70],
   ['Python', 65],
   ['JavaScript', 70],
   ['React', 65],
-] // TODO: жинхэнэ түвшин
+]
 export const PRJ = {
   ism: {
     px: 'museum',
