@@ -39,8 +39,8 @@ const REG = {
     t: 'Control Panel — Ур чадвар',
     l: 'Ур чадвар',
     e: '🎛️',
-    w: 720,
-    h: 480,
+    w: 560,
+    h: 540,
     C: Skills,
   },
   mail: {
@@ -64,10 +64,10 @@ const REG = {
 const getApp = (id) =>
   id.startsWith('p_')
     ? {
-        t: PRJ[id.slice(2)].n,
+        t: PRJ[id.slice(2)].n + ' — Project viewer',
         e: <PixelIcon k={PRJ[id.slice(2)].px} s={16} />,
-        w: 860,
-        h: 540,
+        w: 920,
+        h: 580,
         C: () => <ProjectDetail pid={id.slice(2)} />,
       }
     : REG[id]

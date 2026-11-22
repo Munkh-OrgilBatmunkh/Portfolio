@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { ME, LANG, PRJ, HARD } from '../data.js'
 // Нэр бичихэд нээгдэх апп-ууд: нэр → цонхны id
-const RUN = { ism: 'p_ism', ism_museum: 'p_ism', museum: 'p_ism', playgrid: 'p_pg', pg: 'p_pg', stock_app: 'p_st', stock: 'p_st', about: 'pc', me: 'pc', life: 'life', education: 'life', skills: 'skills', contact: 'mail', mail: 'mail', projects: 'prj', folder: 'prj' }
+const RUN = { ism: 'p_ism', ism_museum: 'p_ism', museum: 'p_ism', playgrid: 'p_pg', pg: 'p_pg', stock_app: 'p_st', stock: 'p_st', udp: 'p_udp', pinger: 'p_udp', udp_pinger: 'p_udp', about: 'pc', me: 'pc', life: 'life', education: 'life', skills: 'skills', contact: 'mail', mail: 'mail', projects: 'prj', folder: 'prj' }
 export function Dos({ close, open }) {
   const [log, setLog] = useState([])
   const [v, setV] = useState('')
@@ -19,7 +19,7 @@ export function Dos({ close, open }) {
     if (raw === 'exit') return close()
     const parts = raw.split(/\s+/), name = (['open', 'start'].includes(parts[0]) ? parts[1] || '' : parts[0]).replace(/\.exe$/, '')
     let out
-    if (RUN[name]) { open(RUN[name]); out = `Starting ${name}...` }
+    if (RUN[name]) { open(RUN[name]); out = `${name} эхэлж байна...` }
     else out = C[raw] ? C[raw]() : `'${raw}' — буруу команд. help гэж бичнэ үү.`
     setLog(l => [...l, `C:\\> ${raw}`, out])
   }

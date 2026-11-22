@@ -3,6 +3,7 @@ const PAL = { K: '#000', Y: '#ffd830', B: '#1a1aa6', W: '#fff', G: '#808080', R:
 const ART = {
   museum: ['.....YY.....', '....YYYY....', '...YYYYYY...', '..YYYYYYYY..', '.BBBBBBBBBB.', '..W.W..W.W..', '..W.W..W.W..', '..W.W..W.W..', '..W.W..W.W..', '.GGGGGGGGGG.', '.GGGGGGGGGG.'],
   pad: ['............', '..RRRRRRRR..', '.RRWRRRRYRR.', '.RWWWRRYRBR.', '.RRWRRRRBRR.', '.RRRRRRRRRR.', '..RR....RR..', '............'],
+  light: ['....KKKK....', '...KKKKKK...', '...KRRRRK...', '...KRRRRK...', '...KKKKKK...', '...KYYYYK...', '...KYYYYK...', '...KKKKKK...', '...KggggK...', '...KggggK...', '...KKKKKK...', '.....GG.....', '.....GG.....'],
   chart: ['..........Y.', '..........Y.', '......g...Y.', '......g...Y.', '..B...g...Y.', '..B...g...Y.', '..B...g...Y.', 'KKKKKKKKKKKK'],
 }
 export default function PixelIcon({ k, s = 56 }) {
