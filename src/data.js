@@ -1,7 +1,7 @@
 export const ME = {
   name: 'Б. Мөнх-Оргил',
   role: 'СЭЗИС-ийн Мэдээллийн Системийн Менежментийн 3 дугаар курсийн оюутан',
-  quote: 'Хүнд өгсөн урам зориг түүнийг амжил өөд хөтөлдөг',
+  quote: 'Хүнд өгсөн урам зориг түүнийг амжилт өөд хөтөлдөг',
   photo: '/images/me.jpg',
   email: 'oggy.batmunkh@gmail.com',
   github: 'https://github.com/Munkh-OrgilBatmunkh',
