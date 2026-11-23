@@ -57,8 +57,8 @@ export function Dos({ close, open }) {
   return (
     <div className="dos">
       <div>
-        OrgilOS 95 [Version 1.0]{'\n'}Төслийн нэр (жишээ нь playgrid) бичвэл
-        шууд нээгдэнэ. help — тусламж
+        OrgilOS 95 [Version 1.0]{'\n'}Төслийн нэр бичвэл шууд нээгдэнэ. help —
+        тусламж
       </div>
       {log.map((l, i) => (
         <div key={i}>{l}</div>
